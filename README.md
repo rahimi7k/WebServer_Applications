@@ -19,10 +19,8 @@ Here, you'll find a comprehensive suite of server-side applications built using 
 **Adherence to MVC Principles**: Maintenance and code clarity were top priorities throughout the development process. We strictly adhered to the MVC (Model View Controller) framework principles, which allowed us to create applications that are not only easy to maintain but also highly adaptable to new requirements. The use of MVC ensures that the codebase remains clean, well-organized, and ready for future enhancements.
 
 
-To get started with this project, follow these steps:
 
 **Clone the Repository:**
-
 Clone this repository to your local machine using the following command:
 bash
 Copy code
