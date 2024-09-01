@@ -4,7 +4,9 @@ Welcome to our server-side application repository! This repository contains our 
 
 Here, you'll find a comprehensive suite of server-side applications built using C# and the .NET Framework. This project was developed with a strong focus on scalability, efficiency, and maintainability, addressing a variety of tasks across different domains.
 
-**Project Highlights**:
+
+
+**Project Highlights**
 
 **Scalable and Efficient Architecture**: The applications within this repository were developed with an emphasis on creating scalable and efficient server-side solutions. Leveraging the power of the .NET Framework, these applications are designed to handle a wide range of server-side tasks with precision and reliability.
 
