@@ -17,3 +17,26 @@ Here, you'll find a comprehensive suite of server-side applications built using 
 **Advanced Multithreading and Concurrency**: Recognizing the importance of performance in server-side applications, we incorporated advanced multithreading techniques. By utilizing concurrency with Semaphore, we effectively controlled access to critical sections, ensuring that parallel processes run smoothly without conflicts or data corruption. This careful management of concurrency contributes to the overall robustness and reliability of the applications.
 
 **Adherence to MVC Principles**: Maintenance and code clarity were top priorities throughout the development process. We strictly adhered to the MVC (Model View Controller) framework principles, which allowed us to create applications that are not only easy to maintain but also highly adaptable to new requirements. The use of MVC ensures that the codebase remains clean, well-organized, and ready for future enhancements.
+
+
+To get started with this project, follow these steps:
+
+**Clone the Repository:**
+
+Clone this repository to your local machine using the following command:
+bash
+Copy code
+git clone https://github.com/yourusername/your-repository.git
+
+**Open the Solution File**:
+Navigate to the project directory where the ODynamic.sln file is located.
+Double-click on the ODynamic.sln file to open it in Visual Studio.
+
+**Restore NuGet Packages**:
+Upon opening the solution in Visual Studio, restore the necessary NuGet packages if prompted. You can do this by right-clicking on the solution in the Solution Explorer and selecting "Restore NuGet Packages."
+
+**Build the Solution**:
+Once the packages are restored, build the solution by clicking on "Build" > "Build Solution" (or press Ctrl+Shift+B).
+
+**Run the Application**:
+After successfully building the solution, you can run the application by clicking the "Start" button in Visual Studio (or press F5).
