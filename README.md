@@ -23,7 +23,7 @@ Here, you'll find a comprehensive suite of server-side applications built using 
 **Clone the Repository:**
 Clone this repository to your local machine using the following command:
 
-git clone https://github.com/yourusername/your-repository.git
+git clone https://github.com/rahimi7k/WebServer_Applications.git
 
 **Open the Solution File**:
 Navigate to the project directory where the IODynamic.sln file is located.
