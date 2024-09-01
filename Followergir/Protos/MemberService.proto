@@ -1,0 +1,265 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "gRPC_Member";
+
+package gRPC_Member;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+service MemberService {
+
+	rpc GetAuthentication (GetAuthenticationReq) returns (GetAuthenticationRes);
+	rpc SetAuthenticationPhoneNumber (SetAuthenticationPhoneNumberReq) returns (SetAuthenticationPhoneNumberRes);
+	rpc SetAuthenticationEmailAddress (SetAuthenticationEmailAddressReq) returns (SetAuthenticationEmailAddressRes);
+	rpc SetAuthenticationRegister (SetAuthenticationRegisterReq) returns (SetAuthenticationRegisterRes);
+	rpc SetAuthenticationReady (SetAuthenticationReadyReq) returns (SetAuthenticationReadyRes);
+	rpc SetAuthenticationForgotPassword (SetAuthenticationForgotPasswordReq) returns (SetAuthenticationForgotPasswordRes);
+	rpc AuthenticationPassword (AuthenticationPasswordReq) returns (AuthenticationPasswordRes);
+	rpc ResendAuthenticationCode (ResendAuthenticationCodeReq) returns (ResendAuthenticationCodeRes);
+	rpc CancelAuthentication (CancelAuthenticationReq) returns (CancelAuthenticationRes);
+
+	rpc GetUser (GetUserReq) returns (GetUserRes);
+	rpc GetUserByPhone (GetUserByPhoneReq) returns (GetUserByPhoneRes);
+	rpc GetUserByEmail (GetUserByEmailReq) returns (GetUserByEmailRes);
+	rpc GetUserField (GetUserFieldReq) returns (GetUserFieldRes);
+	rpc SetUserField (SetUserFieldReq) returns (SetUserFieldRes);
+	rpc CreateUser (CreateUserReq) returns (CreateUserRes);
+	rpc ChangePassword (ChangePasswordReq) returns (ChangePasswordRes);
+	rpc CheckPassword (CheckPasswordReq) returns (CheckPasswordRes);
+
+	rpc IncrementCoin (IncrementCoinReq) returns (IncrementCoinRes);
+	rpc DecrementCoin (DecrementCoinReq) returns (DecrementCoinRes);
+
+}
+
+
+
+message SetAuthenticationPhoneNumberReq {
+	google.protobuf.StringValue ip = 1;
+	google.protobuf.StringValue phoneNumber = 2;
+	int64 userId = 3;
+}
+
+message SetAuthenticationPhoneNumberRes {
+	google.protobuf.StringValue error = 1;
+	google.protobuf.StringValue hash = 2;
+	google.protobuf.StringValue code = 3;
+}
+
+
+message SetAuthenticationEmailAddressReq {
+	google.protobuf.StringValue ip = 1;
+	google.protobuf.StringValue emailAddress = 2;
+	int64 userId = 3;
+}
+
+message SetAuthenticationEmailAddressRes {
+	google.protobuf.StringValue error = 1;
+	google.protobuf.StringValue hash = 2;
+	google.protobuf.StringValue code = 3;
+}
+
+
+
+message GetAuthenticationReq {
+	string hash = 1;
+}
+
+message GetAuthenticationRes {
+	google.protobuf.StringValue emailAddress = 1;
+	google.protobuf.StringValue code = 2;
+	int64 userId = 3;
+}
+
+message SetAuthenticationRegisterReq {
+	google.protobuf.StringValue ip = 2;
+}
+
+message SetAuthenticationRegisterRes {
+
+}
+
+message SetAuthenticationReadyReq {
+	google.protobuf.StringValue hash = 1;
+}
+
+message SetAuthenticationReadyRes {
+
+}
+
+message SetAuthenticationForgotPasswordReq {
+	google.protobuf.StringValue hash = 1;
+	google.protobuf.StringValue ip = 2;
+}
+
+message SetAuthenticationForgotPasswordRes {
+	google.protobuf.StringValue error = 1;
+	google.protobuf.StringValue code = 2;
+}
+
+message AuthenticationPasswordReq {
+	google.protobuf.StringValue hash = 1;
+	google.protobuf.StringValue ip = 2;
+
+}
+
+message AuthenticationPasswordRes {
+	google.protobuf.StringValue error = 1;
+	int64 userId = 2;
+}
+
+
+message ResendAuthenticationCodeReq {
+	google.protobuf.StringValue ip = 1;
+	google.protobuf.StringValue hash = 2;
+}
+
+message ResendAuthenticationCodeRes {
+	google.protobuf.StringValue error = 1;
+	google.protobuf.StringValue code = 2;
+}
+
+
+
+message CancelAuthenticationReq {
+	google.protobuf.StringValue hash = 1;
+}
+
+message CancelAuthenticationRes {
+	google.protobuf.StringValue error = 1;
+}
+
+
+
+
+
+
+message GetUserReq {
+	int64 userId = 1;
+}
+
+message GetUserRes {
+	string error = 1;
+	string name = 2;
+	string emailAddress = 3;
+	string Session = 4;
+	double coin = 5;
+	bool Block = 6;
+}
+
+
+
+message GetUserByPhoneReq {
+	string phoneNumber = 1;
+}
+
+message GetUserByPhoneRes {
+	int64 id = 1;
+	string name = 2;
+	bool Block = 3;
+}
+
+
+message GetUserByEmailReq {
+	string emailAddress = 1;
+}
+
+message GetUserByEmailRes {
+	int64 id = 1;
+	string name = 2;
+	bool Block = 3;
+}
+
+
+
+
+
+message GetUserFieldReq {
+	int64 userId = 1;
+	repeated google.protobuf.StringValue keys = 2;
+}
+
+message GetUserFieldRes {
+	repeated google.protobuf.StringValue values = 1;
+}
+
+
+
+message SetUserFieldReq {
+	int64 userId = 1;
+	string key = 2;
+	string value = 3;
+}
+
+message SetUserFieldRes {
+
+}
+
+
+
+message CreateUserReq {
+	string name = 1;
+	string emailAddress = 2;
+	string password = 3;
+}
+
+message CreateUserRes {
+	int64 userId = 1;
+	google.protobuf.StringValue session = 2;
+}
+
+
+
+
+message CheckPasswordReq {
+	int64 userId = 1;
+	google.protobuf.StringValue password = 2;
+}
+
+message CheckPasswordRes {
+	google.protobuf.StringValue error = 1;
+	google.protobuf.StringValue session = 2;
+}
+
+
+message ChangePasswordReq {
+	int64 userId = 1;
+	google.protobuf.StringValue password = 2;
+}
+
+message ChangePasswordRes {
+	google.protobuf.StringValue error = 1;
+	google.protobuf.StringValue session = 2;
+}
+
+
+
+
+
+
+message IncrementCoinReq {
+	int64 userId = 1;
+	double count = 2;
+}
+
+message IncrementCoinRes {
+	double coin = 1;
+	google.protobuf.StringValue error = 2;
+	int64 unixTime = 3;
+}
+
+message DecrementCoinReq {
+	int64 userId = 1;
+	double count = 2;
+	bool allowNegative = 3;
+}
+
+message DecrementCoinRes {
+	double coin = 1;
+	google.protobuf.StringValue error = 2;
+	int64 unixTime = 3;
+}
+

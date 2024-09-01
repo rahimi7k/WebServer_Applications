@@ -1,0 +1,267 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPC_Followergir";
+
+package gRPC_Followergir;
+
+import "google/protobuf/timestamp.proto";
+
+import "google/protobuf/wrappers.proto";
+
+// null google.protobuf.StringValue => google.protobuf.StringValue
+// help: https://docs.microsoft.com/en-us/aspnet/core/grpc/protobuf?view=aspnetcore-6.0
+
+
+service FollowergirService {
+
+	rpc UnCredit (UnCreditReq) returns (UnCreditRes);
+	rpc SetUnFollow (SetUnFollowReq) returns (SetUnFollowRes);
+
+	rpc AddUser (AddUserReq) returns (AddUserRes);
+	rpc AddLike (AddLikeReq) returns (AddLikeRes);
+	rpc AddComment (AddCommentReq) returns (AddCommentRes);
+
+	rpc GetOrderList (GetOrderListReq) returns (GetOrderListRes);
+	rpc GetOrderInfo (GetOrderInfoReq) returns (GetOrderInfoRes);
+	rpc GetOrderHistory (GetOrderHistoryReq) returns (GetOrderHistoryRes);
+	rpc OrderUser (OrderUserReq) returns (OrderRes);
+	rpc OrderLike (OrderLikeReq) returns (OrderRes);
+	rpc OrderComment (OrderCommentReq) returns (OrderRes);
+	rpc OrderStart (OrderStartReq) returns (OrderRes);
+	rpc OrderCancel (OrderCancelReq) returns (OrderRes);
+	rpc OrderError (OrderErrorReq) returns (OrderErrorRes);
+	rpc GetOrder (GetOrderReq) returns (GetOrderRes);
+}
+
+
+message UnCreditReq {
+	int64 userId = 1;
+}
+
+message UnCreditRes {
+	double coinBack = 1;
+	double coinUnFollow = 2;
+	google.protobuf.Timestamp dateTime = 3;
+}
+
+message SetUnFollowReq {
+	int64 userId = 1;
+	double coin = 2;
+}
+
+message SetUnFollowRes {
+	google.protobuf.StringValue error = 1;
+}
+
+
+
+
+
+message AddUserReq {
+	int64 userId = 1;
+	Order order = 2;
+	int64 iId = 3;
+	int64 userIdOrderer = 4;
+}
+
+message AddUserRes {
+	google.protobuf.StringValue error = 1;
+	int32 mande = 2;
+	int64 unixTime = 3;
+}
+
+message AddLikeReq {
+	int64 userId = 1;
+	Order order = 2;
+	int64 iId = 3;
+	int64 userIdOrderer = 4;
+	int32 type = 5;
+}
+
+message AddLikeRes {
+	google.protobuf.StringValue error = 1;
+	int32 mande = 2;
+	int64 unixTime = 3;
+}
+
+message AddCommentReq {
+	int64 userId = 1;
+	Order order = 2;
+	int64 iId = 3;
+	int64 userIdOrderer = 4;
+	int32 type = 5;
+}
+
+message AddCommentRes {
+	google.protobuf.StringValue error = 1;
+	int32 mande = 2;
+	int64 unixTime = 3;
+}
+
+
+
+
+
+
+
+message GetOrderListReq {
+	int64 userId = 1;
+	repeated OrderListContent list = 2;
+}
+
+message GetOrderListRes {
+	repeated OrderListContent list = 1;
+}
+
+message OrderListContent  {
+	int64 iId = 1;
+	int32 type = 2;
+	Order order = 3;
+	int64 ordererUserId = 4;
+	google.protobuf.StringValue text = 5;
+}
+
+
+
+
+
+
+
+
+
+message GetOrderInfoReq {
+	int64 userId = 1;
+	int32 index = 2;
+}
+
+message GetOrderInfoRes {
+	repeated OrderInfoItem list = 1;
+	bool hasMore = 2;
+}
+
+message OrderInfoItem {
+	Order order = 1;
+	google.protobuf.StringValue type = 2;
+	int32 count = 3;
+	int32 remaining = 4;
+	google.protobuf.StringValue error = 5;
+}
+
+
+
+
+
+message GetOrderHistoryReq {
+	int64 userId = 1;
+	int64 id = 2;
+	bool isNew = 3;
+}
+
+message GetOrderHistoryRes {
+	repeated OrderHistoryContent list = 1;
+	bool hasMore = 2;
+}
+
+message OrderHistoryContent {
+	int64 id = 1;
+	Order order = 2;
+	int32 type = 3;
+	int32 count = 4;
+	int32 remaining = 5;
+	int32 initialCount = 6;
+	int32 status = 7;
+	int64 date = 8;
+}
+
+
+
+
+
+
+message Order {
+	google.protobuf.StringValue username = 1;
+	google.protobuf.StringValue postId = 2;
+	int64 userId = 3;
+}
+
+message OrderUserReq {
+	int64 userId = 1;
+	Order order = 2;
+	int32 count = 3;
+	int32 initialCount = 4;
+	int32 type = 5;
+}
+
+
+message OrderLikeReq {
+	int64 userId = 1;
+	Order order = 2;
+	int32 count = 3;
+	int32 initialCount = 4;
+	int32 type = 5;
+}
+
+message OrderCommentReq {
+	int64 userId = 1;
+	Order order = 2;
+	repeated google.protobuf.StringValue comments = 3;
+	int32 initialCount = 4;
+	int32 type = 5;
+}
+
+
+
+message OrderStartReq {
+	int64 userId = 1;
+	Order order = 2;
+	int32 type = 3;
+}
+
+
+
+message OrderCancelReq {
+	int64 userId = 1;
+	Order order = 2;
+	int32 type = 3;
+}
+
+
+message OrderErrorReq {
+	int64 userId = 1;
+	int64 iId = 2;
+	Order order = 3;
+	int64 userIdOrderer = 4;
+	int32 type = 5;
+	google.protobuf.StringValue error = 6;
+	int64 unixTime = 7;
+}
+
+message OrderErrorRes {
+	google.protobuf.StringValue error = 1;
+	bool isOrderStop = 2;
+	int64 unixTime = 3;
+}
+
+
+message OrderRes {
+	google.protobuf.StringValue error = 1;
+	int32 sefaresh = 2;
+	int32 mande = 3;
+	int64 cartId = 4;
+	int64 lastCartId = 5;
+	int64 unixTime = 6;
+}
+ 
+
+message GetOrderReq {
+	int64 userId = 1;
+	Order order = 2;
+	int32 type = 3;
+}
+
+message GetOrderRes {
+	google.protobuf.StringValue error = 1;
+	int32 sefaresh = 2;
+	int32 mande = 3;
+}
+
