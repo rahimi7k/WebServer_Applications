@@ -1,4 +1,4 @@
-# WebServer_Application
+# WebServer_Applications
 
 Welcome to our server-side application repository! This repository contains our server-side application developed using C# with the .NET Framework. The project includes a collection of server-side applications, each designed to serve different purposes. 
 
