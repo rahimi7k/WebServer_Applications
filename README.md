@@ -22,13 +22,12 @@ Here, you'll find a comprehensive suite of server-side applications built using 
 
 **Clone the Repository:**
 Clone this repository to your local machine using the following command:
-bash
-Copy code
+
 git clone https://github.com/yourusername/your-repository.git
 
 **Open the Solution File**:
-Navigate to the project directory where the ODynamic.sln file is located.
-Double-click on the ODynamic.sln file to open it in Visual Studio.
+Navigate to the project directory where the IODynamic.sln file is located.
+Double-click on the IODynamic.sln file to open it in Visual Studio.
 
 **Restore NuGet Packages**:
 Upon opening the solution in Visual Studio, restore the necessary NuGet packages if prompted. You can do this by right-clicking on the solution in the Solution Explorer and selecting "Restore NuGet Packages."
