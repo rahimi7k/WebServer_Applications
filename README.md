@@ -1,6 +1,6 @@
 # WebServer_Applications
 
-This repository contains a server-side application developed using C# with the .NET Framework. This project was developed with a strong focus on performance, and maintainability, addressing a variety of tasks across different domains.
+This repository contains a server-side application developed using C# with the .NET Framework. This project was developed with a strong focus on performance and maintainability, addressing a variety of tasks across different domains.
 
 ---------------------
 
